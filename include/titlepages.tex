@@ -123,6 +123,12 @@ Ack!  P'tui.
 
   \@acknowledgments
   }
+  
+  \newcommand{\CustomEpigraphPage}{
+  \chapter*{Epigraph}
+
+  \@epigraphpage
+  }
 \makeatother
 
 \ifissubmit
@@ -139,6 +145,7 @@ Ack!  P'tui.
     \cleardoublepage
     \@makeabstractpage{1.0}
     \CustomAcknowledgePage
+    \CustomEpigraphPage
 %    \@makevitapage
 
     \cleardoublepage

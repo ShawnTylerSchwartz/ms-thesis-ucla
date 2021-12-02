@@ -247,6 +247,31 @@
    \fi
 }
 
+%% Make Epigraph Page
+\newif\if@epi
+\def\@epigraphpage{}
+\newcommand\epigraphpage[1]{\@epitrue\def\@epigraphpage{#1}}
+
+\newcommand\@makeepigraphpageheading{
+  {
+    \centering
+    \header{Epigraph}
+    \vskip 12pt
+  }
+}
+
+
+\newcommand\@makeepigraphpage{
+   \if@acks
+      \ColumnSaveHeading{\@makeepigraphpageheading}
+      \par\pagestyle{plain}
+      \renewcommand\baselinestretch{\@spacing}\@normalsize
+      \noindent \normalsize \normalfont \@epigraphpage
+      \vfill
+      \ColumnRestore
+   \fi
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %								       %
 %			      VITA PAGE				       %
@@ -532,6 +557,7 @@
   \listoffigures
   \listoftables
   \@makeacknowledgments
+  \@makeepigraphpage
   \@makevitapage
   \newpage \pagenumbering{arabic}
 }
